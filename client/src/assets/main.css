@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.page-wrap {
-  @apply m-auto max-w-[800px] min-h-screen;
-}
 
 button {
   @apply bg-black text-white border-none text-base font-semibold outline-none p-4 rounded-lg;

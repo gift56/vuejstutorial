@@ -1,7 +1,9 @@
 <script setup>
-import {  RouterView } from "vue-router";
+import { RouterView } from "vue-router";
 </script>
 
 <template>
-  <RouterView />
+  <div class="m-auto max-w-[800px] min-h-screen">
+    <RouterView />
+  </div>
 </template>
