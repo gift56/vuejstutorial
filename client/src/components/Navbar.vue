@@ -4,7 +4,7 @@ import { RouterLink } from "vue-router";
 
 <template>
   <div class="border border-[#ddd] h-[75px] flex items-center justify-between">
-    <RouterLink to="/products" class="products-link">
+    <RouterLink to="/" class="products-link">
       <div class="w-[120px] aspect-square">
         <img src="@/assets/logo-hexagon.svg" />
       </div>

@@ -39,31 +39,6 @@ h1 {
   margin: auto;
 }
 
-.img-wrap {
-  margin-top: 32px;
-  text-align: center;
-}
-
-.img-wrap img {
-  width: 400px;
-}
-
-.product-details {
-  padding: 16px;
-  position: relative;
-}
-
-.add-to-cart {
-  width: 100%;
-  margin-top: 16px;
-}
-
-.price {
-  position: absolute;
-  top: 24px;
-  right: 16px;
-}
-
 .green-button {
   background-color: green;
 }

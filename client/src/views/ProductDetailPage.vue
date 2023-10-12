@@ -1,3 +1,24 @@
+<template>
+  <main
+    v-if="product"
+    class="mt-6 flex items-center justify-center flex-col w-full"
+  >
+    <div>
+      <img :src="product.imageName" class="w-[400px]" />
+    </div>
+    <div class="w-full relative p-3 gap-4 flex flex-col">
+      <div class="w-full flex items-center justify-between gap-4 border-b border-black pb-2">
+        <h3>{{ product.name }}</h3>
+        <h3>{{ product.price }}</h3>
+      </div>
+      <button class="w-full">Add to cart</button>
+    </div>
+  </main>
+  <div v-else>
+    <NotFoundPage />
+  </div>
+</template>
+
 <script>
 import { products } from "@/constant";
 import NotFoundPage from "./NotFoundPage.vue";
@@ -6,7 +27,9 @@ export default {
   name: "ProductDetailPage",
   data() {
     return {
-      product: products.find((item) => item.id === $route.params.productId),
+      product: products.find(
+        (product) => product.id === this.$route.params.productId
+      ),
     };
   },
   components: {
@@ -14,7 +37,3 @@ export default {
   },
 };
 </script>
-
-<template>
-  <main class="mt-6"></main>
-</template>
