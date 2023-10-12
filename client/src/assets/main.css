@@ -69,15 +69,3 @@ h1 {
   padding: 16px;
   width: 100%;
 }
-
-.product-image {
-  @apply flex-1 h-[100px] max-w-[100px];
-}
-
-.details-wrap {
-  @apply px-14 flex-[3];
-}
-
-.remove-button {
-  @apply flex-1 m-auto;
-}
