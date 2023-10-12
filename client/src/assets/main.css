@@ -7,31 +7,15 @@
 }
 
 button {
-  background-color: black;
-  border: none;
-  border-radius: 8px;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  outline: 0;
-  padding: 16px;
+  @apply bg-black text-white border-none text-base font-semibold outline-none p-4 rounded-lg;
 }
 
 h1 {
-  border-bottom: 1px solid black;
-  margin: 0;
-  margin-top: 16px;
-  padding: 16px;
+  @apply border-b border-black mt-4 p-4;
 }
 
 .total-price {
-  padding: 16px;
-  text-align: right;
-}
-
-.checkout-button {
-  width: 100%;
+  @apply p-4;
 }
 
 .product-container {
@@ -169,17 +153,13 @@ h1 {
 }
 
 .product-image {
-  flex: 1;
-  height: 100px;
-  max-width: 100px;
+  @apply flex-1 h-[100px] max-w-[100px];
 }
 
 .details-wrap {
-  padding: 0 16px;
-  flex: 3;
+  @apply px-14 flex-[3];
 }
 
 .remove-button {
-  flex: 1;
-  margin: auto;
+  @apply flex-1 m-auto;
 }
