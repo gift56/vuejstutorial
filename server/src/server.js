@@ -6,7 +6,9 @@ app.get("/hello", (req, res) => {
   res.send("Hello It's Efe");
 });
 
-app.get("/products", (req, res) => {});
+app.get("/products", (req, res) => {
+    
+});
 
 app.get("/products/:productId", (req, res) => {});
 
