@@ -4,7 +4,7 @@ import ProductsList from "@/components/ProductList.vue";
 
 <template>
   <header>
-    <h1>Products</h1>
+    <h1 class="text-base md:text-3xl">Products</h1>
     <ProductsList />
   </header>
 </template>
