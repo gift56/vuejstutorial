@@ -3,9 +3,7 @@
 @tailwind utilities;
 
 .page-wrap {
-  margin: auto;
-  max-width: 800px;
-  min-height: 100vh;
+  @apply m-auto max-w-[800px] min-h-screen;
 }
 
 button {
