@@ -5,7 +5,7 @@
     :key="product.id"
   >
     <img class="flex-1 h-[100px] max-w-[100px]" :src="product.imageName" />
-    <div class="details-wrap">
+    <div class="px-4 flex-[3]">
       <h3>{{ product.name }}</h3>
       <p>{{ product.price }}</p>
     </div>
