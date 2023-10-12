@@ -4,9 +4,9 @@ import { products } from "@/constant";
 </script>
 
 <template>
-  <div class="flex items-start justify-start flex-wrap gap-4 mt-14">
+  <div class="flex md:items-start items-center justify-center md:justify-start flex-wrap gap-4 mt-14">
     <div
-      class="flex flex-col items-center gap-4 justify-center p-4 w-[32%] relative mb-3 rounded-lg shadow-cardShad"
+      class="flex flex-col items-center gap-4 justify-center p-4 w-[90%] md:w-[32%] relative mb-3 rounded-lg shadow-cardShad"
       v-for="product in products"
       :key="product.id"
     >

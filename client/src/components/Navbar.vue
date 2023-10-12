@@ -1,10 +1,5 @@
-<template>
-  <div></div>
-</template>
+<script setup></script>
 
-<script>
-export default {
-  name: "Navbar",
-  components: { Navbar },
-};
-</script>
+<template>
+  <div>Navbar</div>
+</template>
