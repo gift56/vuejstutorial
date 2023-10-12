@@ -1,12 +1,10 @@
 <script setup>
-import { products } from "@/constant";
+import ProductsList from "@/components/ProductList.vue";
 </script>
 
 <template>
   <header>
     <h1>Product</h1>
-    <div v-for="product in products">
-    
-    </div>
+    <ProductsList />
   </header>
 </template>

@@ -1,15 +1,23 @@
 <script setup>
 import { RouterLink } from "vue-router";
+import { products } from "@/constant";
 </script>
 
 <template>
-  <div class="grid-wrap">
-    <div class="product-item" v-for="product in products" :key="product.id">
-      <img :src="product.imageName" />
-      <h3 class="product-name">{{ product.name }}</h3>
-      <p class="product-price">{{ product.price }}</p>
-      <RouterLink :to="'/products/' + product.id">
-        <button>View Details</button>
+  <div class="flex items-start justify-start flex-wrap gap-4 mt-14">
+    <div
+      class="flex flex-col items-center gap-6 justify-center p-4 w-[32%] relative mb-3 rounded-lg shadow-cardShad"
+      v-for="product in products"
+      :key="product.id"
+    >
+      <img
+        :src="product.imageName"
+        class="w-[200px] aspect-square object-contain"
+      />
+      <h3 class="">{{ product.name }}</h3>
+      <p class="">{{ product.price }}</p>
+      <RouterLink :to="'/products/' + product.id" class="w-full">
+        <button class="w-full">View Details</button>
       </RouterLink>
     </div>
   </div>
