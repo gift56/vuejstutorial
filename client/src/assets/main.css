@@ -57,15 +57,3 @@ h1 {
   top: 16px;
   text-decoration: none;
 }
-
-.products-link h1 {
-  margin: 0;
-}
-
-.product-container {
-  align-content: "center";
-  border-bottom: 1px solid #ddd;
-  display: flex;
-  padding: 16px;
-  width: 100%;
-}

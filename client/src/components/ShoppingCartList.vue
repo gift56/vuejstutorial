@@ -9,7 +9,7 @@
       <h3>{{ product.name }}</h3>
       <p>{{ product.price }}</p>
     </div>
-    <button class="remove-button">Remove from Cart</button>
+    <button>Remove from Cart</button>
   </div>
 </template>
 
