@@ -72,17 +72,6 @@ h1 {
   background-color: #888;
 }
 
-.nav-bar {
-  border-bottom: 1px solid #ddd;
-  height: 75px;
-  width: 100%;
-}
-
-.logo-wrap {
-  width: 120px;
-  height: 120px;
-}
-
 .products-link {
   text-align: center;
   display: block;
@@ -96,12 +85,6 @@ h1 {
 
 .products-link h1 {
   margin: 0;
-}
-
-.cart-link {
-  position: absolute;
-  right: 16px;
-  top: 16px;
 }
 
 .product-container {
