@@ -1,5 +1,6 @@
 <script>
 import { products } from "@/constant";
+import NotFoundPage from "./NotFoundPage.vue";
 
 export default {
   name: "ProductDetailPage",
@@ -7,6 +8,9 @@ export default {
     return {
       product: products.find((item) => item.id === $route.params.productId),
     };
+  },
+  components: {
+    NotFoundPage,
   },
 };
 </script>
