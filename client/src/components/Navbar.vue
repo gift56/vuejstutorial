@@ -1,3 +1,10 @@
 <template>
-    <div>Navbar</div>
+  <div></div>
 </template>
+
+<script>
+export default {
+  name: "Navbar",
+  components: { Navbar },
+};
+</script>
