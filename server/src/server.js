@@ -24,7 +24,10 @@ app.get("/products/:productId", (req, res) => {
   res.json(product);
 });
 app.get("/cart", (req, res) => {
-  res.json(cartItems);
+  const populatedCart = cartItems.map((id) =>
+    products.find((item) => item.id === id)
+  );
+  res.json(populatedCart);
 });
 
 app.post("/cart", (req, res) => {
@@ -37,8 +40,7 @@ app.post("/cart", (req, res) => {
 app.delete("/cart/:productId", (req, res) => {
   const productId = req.params.productId;
   cartItems = cartItems.filter((item) => item.id !== productId);
-  res.json(cartItems)
-
+  res.json(cartItems);
 });
 
 app.listen(8000, () => {
