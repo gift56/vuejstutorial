@@ -4,10 +4,12 @@ import {
   cartItems as cartItemRaw,
   products as productItemRaw,
 } from "./constant";
+import { MongoClient } from "mongodb";
 
 let cartItems = cartItemRaw;
 let products = productItemRaw;
 
+const client = new MongoClient(process.env.MONGO);
 const app = express();
 app.use(express.json());
 dotenv.config();
