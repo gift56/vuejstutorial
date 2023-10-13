@@ -31,9 +31,7 @@ app.get("/products/:productId", (req, res) => {
 });
 
 app.get("/cart", (req, res) => {
-  const populatedCart = cartItems.map((id) =>
-    products.find((item) => item.id === id)
-  );
+  const populatedCart = populatedCartId(cartItems);
   res.json(populatedCart);
 });
 
