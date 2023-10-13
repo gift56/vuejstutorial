@@ -9,7 +9,7 @@ import { MongoClient } from "mongodb";
 let cartItems = cartItemRaw;
 let products = productItemRaw;
 
-const client = new MongoClient(process.env.MONGO);
+const client = new MongoClient(`mongodb+srv://efegift:efegift@cluster0.jly2ewj.mongodb.net/?retryWrites=true&w=majority`);
 
 const app = express();
 app.use(express.json());
