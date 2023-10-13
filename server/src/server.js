@@ -9,6 +9,7 @@ let cartItems = cartItemRaw;
 let products = productItemRaw;
 
 const app = express();
+app.use(express.json());
 dotenv.config();
 
 app.get("/hello", (req, res) => {
@@ -31,6 +32,12 @@ app.post("/cart", (req, res) => {
   const product = products.find((item) => item.id === productId);
   cartItems.push(product);
   res.json(cartItems);
+});
+
+app.delete("/cart/:productId", (req, res) => {
+  const productId = req.params.productId;
+  products = products.filter((item) => item.id !== productId);
+  
 });
 
 app.listen(8000, () => {
