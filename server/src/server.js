@@ -1,14 +1,15 @@
 import express from "express";
 import { MongoClient } from "mongodb";
+import dotenv from "dotenv";
 
 async function start() {
-  const url = `mongodb+srv://efegift:efegift@cluster0.jly2ewj.mongodb.net/?retryWrites=true&w=majority`;
-  const client = new MongoClient(url);
+  const client = new MongoClient(process.env.MONGO);
 
   await client.connect();
   const db = client.db("ecommerce");
 
   const app = express();
+  dotenv.config();
   app.use(express.json());
 
   app.get("/products", async (req, res) => {
