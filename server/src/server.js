@@ -3,7 +3,7 @@ import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
 
 async function start() {
-  const client = new MongoClient(process.env.MONGO);
+  const client = new MongoClient(`${process.env.MONGO}`);
 
   await client.connect();
   const db = client.db("ecommerce");
