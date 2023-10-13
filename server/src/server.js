@@ -22,7 +22,8 @@ function populatedCartId(ids) {
 app.get("/hello", async (req, res) => {
   await client.connect();
   const db = client.db("ecommerce");
-  res.send("Eat a dick");
+  const products = await db.collection("products").find({}).toArray();
+  res.send(products);
 });
 
 app.get("/products", (req, res) => {
