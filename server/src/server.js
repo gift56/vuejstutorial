@@ -10,6 +10,7 @@ let cartItems = cartItemRaw;
 let products = productItemRaw;
 
 const client = new MongoClient(process.env.MONGO);
+
 const app = express();
 app.use(express.json());
 dotenv.config();
@@ -18,7 +19,9 @@ function populatedCartId(ids) {
   return ids.map((id) => products.find((item) => item.id === id));
 }
 
-app.get("/hello", (req, res) => {
+app.get("/hello", async (req, res) => {
+  await client.connect();
+  const db = client.db("ecommerce");
   res.send("Eat a dick");
 });
 
