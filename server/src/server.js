@@ -44,8 +44,9 @@ app.post("/cart", (req, res) => {
 
 app.delete("/cart/:productId", (req, res) => {
   const productId = req.params.productId;
-  cartItems = cartItems.filter((item) => item.id !== productId);
-  res.json(cartItems);
+  cartItems = cartItems.filter((id) => id !== productId);
+  const populatedCart = populatedCartId(cartItems);
+  res.json(populatedCart);
 });
 
 app.listen(8000, () => {
