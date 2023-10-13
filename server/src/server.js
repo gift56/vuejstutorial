@@ -36,8 +36,9 @@ app.post("/cart", (req, res) => {
 
 app.delete("/cart/:productId", (req, res) => {
   const productId = req.params.productId;
-  products = products.filter((item) => item.id !== productId);
-  
+  cartItems = cartItems.filter((item) => item.id !== productId);
+  res.json(cartItems)
+
 });
 
 app.listen(8000, () => {
