@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 dotenv.config();
 
-async function populatedCartId(ids) {
+function populatedCartId(ids) {
   return ids.map((id) => products.find((item) => item.id === id));
 }
 
