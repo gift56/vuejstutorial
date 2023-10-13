@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import { products } from "./constant";
 
 const app = express();
 dotenv.config();
@@ -8,10 +9,13 @@ app.get("/hello", (req, res) => {
   res.send("Eat a dick");
 });
 app.get("/products", (req, res) => {
-  res.send("Product");
+  res.json(products);
 });
 app.get("/products/:productId", (req, res) => {
-  res.send("Product Detail");
+  const paramId = req.params.productId;
+  const product = products.find((item) => item.id === paramId);
+
+  res.json(product);
 });
 app.get("/cart", (req, res) => {
   res.send("cart");
