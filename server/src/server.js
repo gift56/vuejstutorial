@@ -12,17 +12,24 @@ const app = express();
 app.use(express.json());
 dotenv.config();
 
+async function populatedCartId(ids) {
+  return ids.map((id) => products.find((item) => item.id === id));
+}
+
 app.get("/hello", (req, res) => {
   res.send("Eat a dick");
 });
+
 app.get("/products", (req, res) => {
   res.json(products);
 });
+
 app.get("/products/:productId", (req, res) => {
   const paramId = req.params.productId;
   const product = products.find((item) => item.id === paramId);
   res.json(product);
 });
+
 app.get("/cart", (req, res) => {
   const populatedCart = cartItems.map((id) =>
     products.find((item) => item.id === id)
@@ -32,8 +39,7 @@ app.get("/cart", (req, res) => {
 
 app.post("/cart", (req, res) => {
   const productId = req.body.id;
-  const product = products.find((item) => item.id === productId);
-  cartItems.push(product);
+  cartItems.push(productId);
   res.json(cartItems);
 });
 
