@@ -20,6 +20,10 @@ app.get("/cart", (req, res) => {
   res.json(cartItems);
 });
 
+app.post("/cart", (req, res) => {
+  res.json(products);
+});
+
 app.listen(8000, () => {
   console.log(`Server is running on http://localhost:${8000}`);
 });
