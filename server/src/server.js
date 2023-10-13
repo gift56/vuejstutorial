@@ -38,7 +38,8 @@ app.get("/cart", (req, res) => {
 app.post("/cart", (req, res) => {
   const productId = req.body.id;
   cartItems.push(productId);
-  res.json(cartItems);
+  const populatedCart = populatedCartId(cartItems);
+  res.json(populatedCart);
 });
 
 app.delete("/cart/:productId", (req, res) => {
