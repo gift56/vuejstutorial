@@ -30,6 +30,7 @@ app.post("/cart", (req, res) => {
   const productId = req.body.id;
   const product = products.find((item) => item.id === productId);
   cartItems.push(product);
+  res.json(cartItems);
 });
 
 app.listen(8000, () => {
