@@ -1,6 +1,12 @@
 import express from "express";
 import dotenv from "dotenv";
-import { cartItems as cartItemRaw , products as productItemRaw} from "./constant";
+import {
+  cartItems as cartItemRaw,
+  products as productItemRaw,
+} from "./constant";
+
+let cartItems = cartItemRaw;
+let products = productItemRaw;
 
 const app = express();
 dotenv.config();
@@ -23,7 +29,7 @@ app.get("/cart", (req, res) => {
 app.post("/cart", (req, res) => {
   const productId = req.body.id;
   const product = products.find((item) => item.id === productId);
-  res.
+  cartItems.push(product);
 });
 
 app.listen(8000, () => {
