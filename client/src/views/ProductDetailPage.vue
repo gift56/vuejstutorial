@@ -65,6 +65,17 @@ export default {
       );
     },
   },
+  watch: {
+    async user(newUserValue) {
+      if (newUserValue) {
+        const cartResponse = await axios.get(
+          `/api/users/${newUserValue.uid}/cart`
+        );
+        const cartItems = cartResponse.data;
+        this.cartItems = cartItems;
+      }
+    },
+  },
   methods: {
     async addToCart() {
       await axios.post("/api/users/12345/cart", {
