@@ -13,7 +13,16 @@
         <h3>{{ product.name }}</h3>
         <h3>{{ product.price }}</h3>
       </div>
-      <button @click="addToCart" class="w-full">Add to cart</button>
+      <button @click="addToCart" class="add-to-cart" v-if="!itemIsInCart">
+        Add to cart
+      </button>
+      <button
+        disabled
+        class="bg-gray-400 text-black cursor-not-allowed"
+        v-if="itemIsInCart"
+      >
+        Already Existed in cart
+      </button>
     </div>
   </main>
   <div v-else>
@@ -30,6 +39,7 @@ export default {
   data() {
     return {
       product: {},
+      cartItems: [],
     };
   },
   computed: {
@@ -56,6 +66,10 @@ export default {
     );
     const product = res.data;
     this.product = product;
+
+    const cartResponse = await axios.get("/api/users/12345/cart");
+    const cartItems = cartResponse.data;
+    this.cartItems = cartItems;
   },
 };
 </script>
