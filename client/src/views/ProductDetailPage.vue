@@ -13,7 +13,11 @@
         <h3>{{ product.name }}</h3>
         <h3>{{ product.price }}</h3>
       </div>
-      <button @click="addToCart" class="add-to-cart" v-if="!itemIsInCart">
+      <button
+        @click="addToCart"
+        class="add-to-cart"
+        v-if="user && !itemIsInCart"
+      >
         Add to cart
       </button>
       <button
@@ -23,7 +27,9 @@
       >
         Already Existed in cart
       </button>
-      <button class="sign-in" @click="signIn">Sign in to add to cart</button>
+      <button class="sign-in" @click="signIn" v-if="!user">
+        Sign in to add to cart
+      </button>
       <toast ref="toast"></toast>
     </div>
   </main>
@@ -57,17 +63,6 @@ export default {
       return this.cartItems.some(
         (item) => item.id === this.$route.params.productId
       );
-    },
-  },
-  watch: {
-    async user(newUserValue) {
-      if (newUserValue) {
-        const cartResponse = await axios.get(
-          `/api/users/${newUserValue.uid}/cart`
-        );
-        const cartItems = cartResponse.data;
-        this.cartItems = cartItems;
-      }
     },
   },
   methods: {
