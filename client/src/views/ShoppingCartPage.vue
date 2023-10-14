@@ -10,9 +10,11 @@
   <div v-if="cartItems.length === 0">
     You current have no items in your cart!
   </div>
+  <toast ref="toast"></toast>
 </template>
 
 <script>
+import Toast from "@/components/Toast.vue";
 import ShoppingCartList from "@/components/ShoppingCartList.vue";
 import axios from "axios";
 
@@ -20,18 +22,20 @@ export default {
   name: "ShoppingCartPage",
   components: {
     ShoppingCartList,
+    Toast
   },
   data() {
     return {
       cartItems: [],
     };
   },
-  
+
   methods: {
     async removeFromCart(productId) {
       const response = await axios.delete(`/api/users/12345/cart/${productId}`);
       const updatedCart = response.data;
       this.cartItems = updatedCart;
+      this.$refs.toast.showToast("Successfully removed item from cart!");
     },
   },
   async created() {
