@@ -23,6 +23,7 @@
       >
         Already Existed in cart
       </button>
+      <button class="sign-in" @click="signIn">Sign in to add to cart</button>
       <toast ref="toast"></toast>
     </div>
   </main>
@@ -32,6 +33,12 @@
 </template>
 
 <script>
+import {
+  getAuth,
+  sendSignInLinkToEmail,
+  isSignInWithEmailLink,
+  signInWithEmailLink,
+} from "firebase/auth";
 import Toast from "@/components/Toast.vue";
 import NotFoundPage from "./NotFoundPage.vue";
 import axios from "axios";
@@ -57,6 +64,17 @@ export default {
         id: this.$route.params.productId,
       });
       this.$refs.toast.showToast("Successfully added item to cart!");
+    },
+    async signIn() {
+      const email = prompt("Please enter your email to sign in:");
+      const auth = getAuth();
+      const actionCodeSettings = {
+        url: `http://localhost:5173/products/${this.$route.params.productId}`,
+        handleCodeInApp: true,
+      };
+      await sendSignInLinkToEmail(auth, email, actionCodeSettings);
+      alert("A login link was sent to the email you provided");
+      window.localStorage.setItem("emailForSignIn", email);
     },
   },
   components: {
