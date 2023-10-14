@@ -9,7 +9,8 @@
     >
       <img
         :src="product.imageUrl"
-        class="w-[200px] aspect-square object-contain"
+        :alt="product.name"
+        class="w-[200px] aspect-square object-contain border"
       />
       <h3 class="">{{ product.name }}</h3>
       <p class="">{{ product.price }}</p>

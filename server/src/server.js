@@ -1,9 +1,10 @@
 import express from "express";
 import { MongoClient } from "mongodb";
-import dotenv from "dotenv";
 import path from "path";
+import dotenv from "dotenv";
 
 dotenv.config();
+app.use("/images", express.static(path.join(__dirname, "../assets")));
 
 async function start() {
   const client = new MongoClient(`${process.env.MONGO}`);
@@ -13,8 +14,6 @@ async function start() {
 
   const app = express();
   app.use(express.json());
-
-  app.use("/images", express.static(path.join(__dirname, "../assets")));
 
   app.get("/api/products", async (req, res) => {
     const products = await db.collection("products").find({}).toArray();
