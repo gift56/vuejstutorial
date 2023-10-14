@@ -33,7 +33,7 @@ export default {
     };
   },
   async created() {
-    const res = await axios.get("");
+    const res = await axios.get("/api/products");
     const products = res.data;
     this.products = products;
   },
