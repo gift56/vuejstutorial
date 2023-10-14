@@ -34,6 +34,8 @@ export default {
   },
   async created() {
     const res = await axios.get();
+    const products = res.data;
+    this.products = products;
   },
 };
 </script>
