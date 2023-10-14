@@ -18,7 +18,7 @@
       </button>
       <button
         disabled
-        class="bg-gray-400 text-black cursor-not-allowed"
+        class="bg-gray-400  cursor-not-allowed"
         v-if="itemIsInCart"
       >
         Already Existed in cart
