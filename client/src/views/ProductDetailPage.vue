@@ -13,9 +13,7 @@
         <h3>{{ product.name }}</h3>
         <h3>{{ product.price }}</h3>
       </div>
-      <button @click="addToCart" class="w-full">
-        Add to cart
-      </button>
+      <button @click="addToCart" class="w-full">Add to cart</button>
     </div>
   </main>
   <div v-else>
@@ -33,6 +31,13 @@ export default {
     return {
       product: {},
     };
+  },
+  computed: {
+    itemIsInCart() {
+      return this.cartItems.some(
+        (item) => item.id === this.$route.params.productId
+      );
+    },
   },
   methods: {
     async addToCart() {
