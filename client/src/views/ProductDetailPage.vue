@@ -87,7 +87,7 @@ export default {
       const email = prompt("Please enter your email to sign in:");
       const auth = getAuth();
       const actionCodeSettings = {
-        url: `https://g1hgmtg1-5173.uks1.devtunnels.ms/products/${this.$route.params.productId}`,
+        url: `https://olive-ecommerce.onrender.com/products/${this.$route.params.productId}`,
         handleCodeInApp: true,
       };
       await sendSignInLinkToEmail(auth, email, actionCodeSettings);
