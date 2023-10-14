@@ -45,6 +45,12 @@ async function start() {
     const userId = req.params.userId;
     const productId = req.body.id;
 
+    const existingUser = await db.collection("users").findOne({ id: userId });
+
+    if (!existingUser) {
+      await db.collection("users").insertOne({ id: userId, cartItems: [] });
+    }
+
     await db.collection("users").updateOne(
       { id: userId },
       {
@@ -63,11 +69,6 @@ async function start() {
     const userId = req.params.userId;
     const productId = req.params.productId;
 
-    const existingUser = await db.collection("users").findOne({ id: userId });
-
-    if (!existingUser) {
-      await db.collection("users").insertOne({ id: userId, cartItems: [] });
-    }
 
     await db.collection("users").updateOne(
       { id: userId },
