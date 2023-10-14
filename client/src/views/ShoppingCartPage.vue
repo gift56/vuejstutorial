@@ -11,18 +11,20 @@
 
 <script>
 import ShoppingCartList from "@/components/ShoppingCartList.vue";
-import { cartItems } from "@/constant";
 import axios from "axios";
 
 export default {
   name: "ShoppingCartPage",
+  components:{
+    ShoppingCartList,
+  },
   data() {
     return {
       cartItems: [],
     };
   },
   async created() {
-    const res = await axios.get(`/api/users/12345/cart`);
+    const res = await axios.get("/api/users/12345/cart");
     const cartItems = res.data;
     this.cartItems = cartItems;
   },
