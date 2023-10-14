@@ -13,7 +13,8 @@ async function start() {
 
   const app = express();
   app.use(express.json());
-  app.use("/images", express.static(path.join(__dirname, "../assets")));
+  const publicFile = path.join(__dirname, "../assets");
+  app.use("/images", express.static(publicFile));
 
   app.get("/api/products", async (req, res) => {
     const products = await db.collection("products").find({}).toArray();

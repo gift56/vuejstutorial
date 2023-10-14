@@ -8,7 +8,8 @@ export default defineConfig({
   plugins: [vue()],
   server: {
     proxy: {
-      '/api':'http://localhost:8000',
+      "/api": "http://localhost:8000",
+      "/images": "http://localhost:8000",
     },
   },
   resolve: {
