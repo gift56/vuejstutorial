@@ -1,11 +1,30 @@
-<script setup>
-import { RouterView } from "vue-router";
-import Navbar from "@/components/Navbar.vue";
-</script>
-
 <template>
-  <Navbar />
+  <Navbar :user="user" />
   <div class="m-auto max-w-[800px] min-h-screen">
-    <RouterView />
+    <RouterView :user="user" />
   </div>
 </template>
+
+<script>
+import { RouterView } from "vue-router";
+import Navbar from "@/components/Navbar.vue";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
+export default {
+  name: "App",
+  components: {
+    Navbar,
+  },
+  data() {
+    return {
+      user: null,
+    };
+  },
+  created() {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      this.user = user;
+    });
+  },
+};
+</script>
