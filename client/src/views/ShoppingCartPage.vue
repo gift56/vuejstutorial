@@ -1,8 +1,3 @@
-<script setup>
-import ShoppingCartList from "@/components/ShoppingCartList.vue";
-import { cartItems } from "@/constant";
-</script>
-
 <template>
   <h1>Shopping Cart</h1>
   <div v-if="cartItems.length > 0">
@@ -13,3 +8,23 @@ import { cartItems } from "@/constant";
     You current have no items in your cart!
   </div>
 </template>
+
+<script>
+import ShoppingCartList from "@/components/ShoppingCartList.vue";
+import { cartItems } from "@/constant";
+import axios from "axios";
+
+export default {
+  name: "ShoppingCartPage",
+  data() {
+    return {
+      cartItems: [],
+    };
+  },
+  async created() {
+    const res = await axios.get(`/api/users/12345/cart`);
+    const cartItems = res.data;
+    this.cartItems = cartItems;
+  },
+};
+</script>
