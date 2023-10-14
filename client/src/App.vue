@@ -1,7 +1,7 @@
 <template>
-  <Navbar />
+  <Navbar :user="user" />
   <div class="m-auto max-w-[800px] min-h-screen">
-    <RouterView />
+    <RouterView :user="user" />
   </div>
 </template>
 
