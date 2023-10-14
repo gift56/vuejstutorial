@@ -7,7 +7,9 @@
       <img :src="product.imageUrl" class="w-[400px]" />
     </div>
     <div class="w-full relative p-3 gap-4 flex flex-col">
-      <div class="w-full flex items-center justify-between gap-4 border-b border-black pb-2">
+      <div
+        class="w-full flex items-center justify-between gap-4 border-b border-black pb-2"
+      >
         <h3>{{ product.name }}</h3>
         <h3>{{ product.price }}</h3>
       </div>
@@ -22,6 +24,7 @@
 <script>
 import { products } from "@/constant";
 import NotFoundPage from "./NotFoundPage.vue";
+import axios from "axios";
 
 export default {
   name: "ProductDetailPage",
@@ -34,6 +37,11 @@ export default {
   },
   components: {
     NotFoundPage,
+  },
+  async created() {
+    const res = await axios.get(`/api/products`);
+    const products = res.data;
+    this.products = products;
   },
 };
 </script>
