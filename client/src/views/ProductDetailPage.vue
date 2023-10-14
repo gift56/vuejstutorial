@@ -23,6 +23,7 @@
       >
         Already Existed in cart
       </button>
+      <toast ref="toast"></toast>
     </div>
   </main>
   <div v-else>
@@ -31,6 +32,7 @@
 </template>
 
 <script>
+import Toast from "@/components/Toast.vue";
 import NotFoundPage from "./NotFoundPage.vue";
 import axios from "axios";
 
@@ -54,11 +56,12 @@ export default {
       await axios.post("/api/users/12345/cart", {
         id: this.$route.params.productId,
       });
-      alert("Successfully added item to cart!");
+      this.$refs.toast.showToast("Successfully added item to cart!");
     },
   },
   components: {
     NotFoundPage,
+    Toast,
   },
   async created() {
     const res = await axios.get(
