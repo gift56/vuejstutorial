@@ -1,13 +1,18 @@
-<script setup>
-import { RouterView } from "vue-router";
-import Navbar from "@/components/Navbar.vue";
-
-</script>
-
 <template>
   <Navbar />
   <div class="m-auto max-w-[800px] min-h-screen">
     <RouterView />
   </div>
-  <Toaster />
 </template>
+
+<script>
+import { RouterView } from "vue-router";
+import Navbar from "@/components/Navbar.vue";
+
+export default {
+  name: "App",
+  components: {
+    Navbar,
+  },
+};
+</script>
