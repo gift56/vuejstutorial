@@ -20,28 +20,45 @@ import axios from "axios";
 
 export default {
   name: "ShoppingCartPage",
+  props: ["user"],
   components: {
     ShoppingCartList,
-    Toast
+    Toast,
   },
   data() {
     return {
       cartItems: [],
     };
   },
-
+  watch: {
+    async user(newUserValue) {
+      console.log("Changed!");
+      console.log(newUserValue);
+      if (newUserValue) {
+        const cartResponse = await axios.get(
+          `/api/users/${newUserValue.uid}/cart`
+        );
+        const cartItems = cartResponse.data;
+        this.cartItems = cartItems;
+      }
+    },
+  },
   methods: {
     async removeFromCart(productId) {
-      const response = await axios.delete(`/api/users/12345/cart/${productId}`);
-      const updatedCart = response.data;
+      const res = await axios.delete(
+        `/api/users/${this.user.uid}/cart/${productId}`
+      );
+      const updatedCart = res.data;
       this.cartItems = updatedCart;
       this.$refs.toast.showToast("Successfully removed item from cart!");
     },
   },
   async created() {
-    const res = await axios.get("/api/users/12345/cart");
-    const cartItems = res.data;
-    this.cartItems = cartItems;
+    if (this.user) {
+      const res = await axios.get(`/api/users/${this.user.uid}/cart`);
+      const cartItems = res.data;
+      this.cartItems = cartItems;
+    }
   },
 };
 </script>
