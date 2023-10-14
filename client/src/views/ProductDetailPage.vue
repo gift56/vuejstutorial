@@ -82,15 +82,25 @@ export default {
     Toast,
   },
   async created() {
+    const auth = getAuth();
+    if (isSignInWithEmailLink(auth, window.location.href)) {
+      const email = window.localStorage.getItem("emailForSignIn");
+      await signInWithEmailLink(auth, email, window.location.href);
+      alert("Successfully signed in!");
+      window.localStorage.removeItem("emailForSignIn");
+    }
+
     const res = await axios.get(
       `/api/products/${this.$route.params.productId}`
     );
     const product = res.data;
     this.product = product;
 
-    const cartResponse = await axios.get("/api/users/12345/cart");
-    const cartItems = cartResponse.data;
-    this.cartItems = cartItems;
+    if (this.user) {
+      const cartResponse = await axios.get("/api/users/12345/cart");
+      const cartItems = cartResponse.data;
+      this.cartItems = cartItems;
+    }
   },
 };
 </script>
