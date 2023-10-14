@@ -33,7 +33,6 @@
 <script>
 import NotFoundPage from "./NotFoundPage.vue";
 import axios from "axios";
-import toast, { Toaster } from "react-hot-toast";
 
 export default {
   name: "ProductDetailPage",
@@ -55,12 +54,11 @@ export default {
       await axios.post("/api/users/12345/cart", {
         id: this.$route.params.productId,
       });
-      toast.success("Successfully added item to cart!");
+      alert("Successfully added item to cart!");
     },
   },
   components: {
     NotFoundPage,
-    Toaster,
   },
   async created() {
     const res = await axios.get(
