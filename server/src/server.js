@@ -78,5 +78,4 @@ async function start() {
     console.log(`'Server is listening on port http://localhost:8000`);
   });
 }
-
 start();
