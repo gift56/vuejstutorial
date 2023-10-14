@@ -4,7 +4,7 @@
     class="mt-6 flex items-center justify-center flex-col w-full"
   >
     <div>
-      <img :src="product.imageName" class="w-[400px]" />
+      <img :src="product.imageUrl" class="w-[400px]" />
     </div>
     <div class="w-full relative p-3 gap-4 flex flex-col">
       <div class="w-full flex items-center justify-between gap-4 border-b border-black pb-2">

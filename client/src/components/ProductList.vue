@@ -8,7 +8,7 @@
       :key="product.id"
     >
       <img
-        :src="product.imageName"
+        :src="product.imageUrl"
         class="w-[200px] aspect-square object-contain"
       />
       <h3 class="">{{ product.name }}</h3>
