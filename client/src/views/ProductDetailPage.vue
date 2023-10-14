@@ -13,7 +13,9 @@
         <h3>{{ product.name }}</h3>
         <h3>{{ product.price }}</h3>
       </div>
-      <button @click="addToCart" class="w-full">Add to cart</button>
+      <button @click="addToCart" class="w-full">
+        Add to cart
+      </button>
     </div>
   </main>
   <div v-else>
@@ -24,7 +26,6 @@
 <script>
 import NotFoundPage from "./NotFoundPage.vue";
 import axios from "axios";
-import toast from "react-hot-toast";
 
 export default {
   name: "ProductDetailPage",
@@ -36,9 +37,9 @@ export default {
   methods: {
     async addToCart() {
       await axios.post("/api/users/12345/cart", {
-        productId: this.$route.params.productId,
+        id: this.$route.params.productId,
       });
-      toast("Successfully added product to cart");
+      alert("Successfully added item to cart!");
     },
   },
   components: {
