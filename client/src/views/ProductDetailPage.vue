@@ -104,7 +104,7 @@ export default {
     this.product = product;
 
     if (this.user) {
-      const cartResponse = await axios.get("/api/users/12345/cart");
+      const cartResponse = await axios.get(`/api/users/${this.user.uid}/cart`);
       const cartItems = cartResponse.data;
       this.cartItems = cartItems;
     }
