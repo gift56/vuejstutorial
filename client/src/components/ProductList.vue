@@ -23,7 +23,6 @@
 
 <script>
 import { RouterLink } from "vue-router";
-import { products } from "@/constant";
 import axios from "axios";
 
 export default {
