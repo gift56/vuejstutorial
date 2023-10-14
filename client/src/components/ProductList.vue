@@ -29,11 +29,11 @@ export default {
   name: "ProductList",
   data() {
     return {
-      products,
+      products: [],
     };
   },
   async created() {
-    const res = await axios.get();
+    const res = await axios.get("");
     const products = res.data;
     this.products = products;
   },
