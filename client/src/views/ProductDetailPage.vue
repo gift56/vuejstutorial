@@ -19,7 +19,7 @@
       <button
         disabled
         class="bg-gray-400 cursor-not-allowed"
-        v-if="itemIsInCart"
+        v-if="user && itemIsInCart"
       >
         Already Existed in cart
       </button>
@@ -45,6 +45,7 @@ import axios from "axios";
 
 export default {
   name: "ProductDetailPage",
+  props: ["user"],
   data() {
     return {
       product: {},
@@ -56,6 +57,17 @@ export default {
       return this.cartItems.some(
         (item) => item.id === this.$route.params.productId
       );
+    },
+  },
+  watch: {
+    async user(newUserValue) {
+      if (newUserValue) {
+        const cartResponse = await axios.get(
+          `/api/users/${newUserValue.uid}/cart`
+        );
+        const cartItems = cartResponse.data;
+        this.cartItems = cartItems;
+      }
     },
   },
   methods: {
